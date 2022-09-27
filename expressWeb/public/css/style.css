@@ -103,6 +103,14 @@ body {
   filter: drop-shadow(0 0.5 1rem rgba(0, 0, 0, 0.3));
 }
 
+
+/* error page */
+
+
+.errimg{
+    width: 60rem;
+    height: 30rem;
+}
 /* footer */
 
 footer {
@@ -129,3 +137,5 @@ footer p {
     margin-top: 3rem;
   }
 }
+
+

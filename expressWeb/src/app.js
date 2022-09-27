@@ -1,26 +1,36 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const hbs = require("hbs");
 // process.env.PORT ||
 const port = 2000 || process.env.PORT;
 
 // public static path
 // console.log(path.join(__dirname, "../public"));
-const staticPath=path.join(__dirname, "../public")
+const staticPath = path.join(__dirname, "../public");
+const template_path = path.join(__dirname, "../templates/views");
+const partials_path = path.join(__dirname, "../templates/partials");
+
+app.set("view engine", "hbs");
+app.set("views", template_path);
+hbs.registerPartials(partials_path);
+
 app.use(express.static(staticPath));
 
 // ROUTING
 app.get("/", (req, res) => {
-  res.send("welcomet o diptanshu bhawsar");
+  res.render("index");
 });
 app.get("/about", (req, res) => {
-  res.send("welcomet o diptanshu about bhawsar");
+  res.render("about");
 });
 app.get("/weather", (req, res) => {
-  res.send("welcomet o diptanshu weather bhawsar");
+  res.render("weather");
 });
 app.get("*", (req, res) => {
-  res.send("404 OOPs Not found");
+  res.render("404error", {
+    errorMsg: "Oops Sorry Not Found",
+  });
 });
 
 app.listen(port, () => {
