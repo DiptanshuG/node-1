@@ -1,0 +1,2 @@
+express js is a nodejs framework .it's the most popular framework as  of now ( the most starred on npm)
+expressjs is a web application framework that provides you ith a simple api to build websites web apps and backends
